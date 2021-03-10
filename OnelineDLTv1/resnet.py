@@ -3,8 +3,8 @@ import torch.utils.model_zoo as model_zoo
 import torch, imageio
 from utils import transform, DLT_solve
 
-criterion_l2 = nn.MSELoss(reduce=True, size_average=True)
-triplet_loss = nn.TripletMarginLoss(margin=1.0, p=1, reduce=False,size_average=False)
+criterion_l2 = nn.MSELoss(reduction='mean')
+triplet_loss = nn.TripletMarginLoss(margin=1.0, p=1, reduction='none')
 
 __all__ = ['ResNet', 'resnet18', 'resnet34', 'resnet50', 'resnet101',
            'resnet152']
